@@ -1652,13 +1652,22 @@ p {
     font-size: var(--font-size-b1);
     line-height: var(--line-height-b1);
     font-weight: 400;
-    color:#404040;
+    color:var(--color-heading);
     margin: 0 0 20px;
 }
-
+.blog-list-card, .card-paragraph {
+     color:#404040;
+     margin: 0 0 20px;
+      line-height: var(--line-height-b1);
+}
 @media only screen and (max-width: 767px) {
     p {
         margin: 0 0 20px;
+    }
+    .blog-list-card, .card-paragraph {
+     color:#404040;
+     margin: 0 0 20px;
+    line-height: var(--line-height-b1);
     }
 }
 
