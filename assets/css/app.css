@@ -177,6 +177,9 @@ STYLESHEET INDEXING
  *  Shortcode
 =================================*/
 /*--------------------------------------*/
+.title-about{
+color: var(--color-extra12);
+}
 .blog{
     color: var(--color-extra12);
     font-weight: bold;
@@ -9181,9 +9184,10 @@ body.sal-disabled [data-sal|='flip'] {
 }
 
 .categorie-grid.categorie-style-3 {
+    /* lighten01 */
     background-color: var(--color-white);
     padding: 40px 20px 35px;
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 10px 45px 0px rgba(0, 0, 0, 0.1);
 }
 
 .categorie-grid.categorie-style-3 .icon {
