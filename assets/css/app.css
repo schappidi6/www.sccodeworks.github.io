@@ -184,14 +184,6 @@ color: var(--color-extra12);
     color: var(--color-extra12);
     font-weight: bold;
 }
-.quote p {
-    text-decoration: underline;
-    color: var(--primary-color);
-}
-:hover .quote p {
-    text-decoration: none;
-    color: var(--primary-color); 
-}
 
 .container-custom,
 .container-custom-1520 {
@@ -974,6 +966,12 @@ Custom Row
         order: 2 !important;
     }
 }
+@media screen and (min-width: 2560px) {
+  .container {
+    margin-left: 10px;
+    width: 100%;
+  }
+}
 
 #edublink-preloader {
     position: fixed;
@@ -1417,6 +1415,27 @@ em {
 }
 
 /* BlockQuote  */
+blockquote .quote p, p a {
+    text-decoration: underline !important;
+    color:#087498 !important;
+
+}p a {
+    text-decoration: underline ;
+    color:#087498;
+}
+.newsletter-header p a {
+ text-decoration: underline ;
+    color:#00a9df !important;
+}
+blockquote .quote p:hover, p a:hover{
+    text-decoration: none !important;
+    color: var(--color-primary) !important;
+}
+
+ .newsletter-header p a:hover{
+    text-decoration: underline !important;
+    color: var(--color-primary) !important;
+}
 blockquote,
 q {
     -webkit-hyphens: none;
@@ -1446,6 +1465,14 @@ blockquote small {
 blockquote strong,
 blockquote b {
     font-weight: 700;
+}
+.quote p {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+:hover .quote p {
+    text-decoration: none;
+    color: var(--primary-color); 
 }
 
 /*-------------------------
