@@ -10867,8 +10867,11 @@ body.sal-disabled [data-sal|='flip'] {
 .edu-course.course-style-4 .content .course-rating {
     margin-bottom: 14px;
 }
+.edu-course.course-style-4:hover .title {
+    color: var(--color-black) !important;
+}
 
-.edu-course.course-style-4:hover {
+/* .edu-course.course-style-4:hover {
     background-color: var(--color-primary);
 }
 
@@ -10878,9 +10881,9 @@ body.sal-disabled [data-sal|='flip'] {
 
 .edu-course.course-style-4:hover .content .course-price {
     color: var(--color-white);
-}
+} */
 
-.edu-course.course-style-4:hover .content .course-rating .rating-count {
+/* .edu-course.course-style-4:hover .content .course-rating .rating-count {
     color: var(--color-white);
 }
 
@@ -10890,7 +10893,7 @@ body.sal-disabled [data-sal|='flip'] {
 
 .edu-course.course-style-4:hover .content .course-meta li i {
     color: var(--color-white);
-}
+} */
 
 .edu-course.course-style-4:hover .content .course-meta li:after {
     background-color: rgba(255, 255, 255, 0.3);
