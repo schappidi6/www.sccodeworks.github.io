@@ -1420,7 +1420,13 @@ blockquote .quote p, p a {
     text-decoration: underline !important;
     color:#087498 !important;
 
-}p a {
+}
+.quote{
+      text-decoration: none ;
+    color:#087498 !important;
+
+}
+p a , .quote:active, .quote:hover{
     text-decoration: underline ;
     color:#087498;
 }
