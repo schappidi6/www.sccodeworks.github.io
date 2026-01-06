@@ -180,6 +180,9 @@ STYLESHEET INDEXING
 .title-about{
 color: var(--color-extra12);
 }
+.blogsubtitle{
+ color: var(--color-extra11); 
+}
 .blog{
     color: var(--color-extra12);
     font-weight: bold;
@@ -34409,6 +34412,30 @@ blockquote:after {
     top: 30px;
     left: 40px;
 }
+.contentquote {
+    font-family: inherit;
+    font-size: 16px;
+    /* color: var(--color-primary); */
+    
+    color: #087498;
+
+    position: relative; /* change from absolute if possible */
+    /* margin: 10px 10px; */
+
+    width: 100%;
+    /* max-width: 900px;   */
+     /* long card */
+    padding: 2rem 2rem;
+
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+ border-left:4px solid #00a9df;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
 
 @media only screen and (max-width: 767px) {
     blockquote:after {
@@ -34417,7 +34444,7 @@ blockquote:after {
     }
 }
 
-blockquote p {
+blockquote p{
     font-size: 17px;
     margin-bottom: 8px;
 }
