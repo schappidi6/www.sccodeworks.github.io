@@ -3722,7 +3722,7 @@ Scroll Down Button Animation
 }
 
 .breadcrumb-style-4 {
-    padding: 110px 0 105px;
+    padding: 10px 0 10px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -7724,7 +7724,7 @@ body.sal-disabled [data-sal|='flip'] {
   Call To Action Styles
 ---------------------*/
 .edu-cta-banner-area {
-    padding: 102px 0;
+    padding: 102px 0 10px 0;
     background-color: #f0f4f5;
     position: relative;
     z-index: 1;
@@ -7739,21 +7739,27 @@ body.sal-disabled [data-sal|='flip'] {
     height: 100%;
     background-image: url(../images/cta/cta.svg);
     -webkit-filter: brightness(0) saturate(100%) invert(52%) sepia(75%) saturate(451%) hue-rotate(121deg) brightness(96%) contrast(90%);
-    filter: brightness(0) saturate(100%) invert(52%) sepia(75%) saturate(451%) hue-rotate(121deg) brightness(96%) contrast(90%);
-    background-position: center bottom;
+   filter: brightness(0) saturate(100%)
+        invert(60%)
+        sepia(80%)
+        saturate(1800%)
+        hue-rotate(165deg)
+        brightness(110%)
+        contrast(88%);
+  background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .edu-cta-banner-area {
-        padding: 80px 0 70px;
+        padding: 80px 0 10px 0;
     }
 }
 
 @media only screen and (max-width: 767px) {
     .edu-cta-banner-area {
-        padding: 80px 0 70px;
+        padding: 80px 0 10px 0;
     }
 }
 
@@ -25903,23 +25909,23 @@ margin-top:120px !important;
     Remote Training Styles Starts
 =========================================================================*/
 .hero-style-11 {
-    padding: 240px 0 160px;
+    padding: 240px 0 8px;
 }
 
 @media only screen and (max-width: 1199px) {
     .hero-style-11 {
-        padding: 180px 0 130px;
+        padding: 180px 0 8px;
     }
 }
 
 @media only screen and (max-width: 575px) {
     .hero-style-11 {
-        padding: 150px 0 80px;
+        padding: 180px 0 8px;
     }
 }
 
 .hero-style-11.remote-training {
-    min-height: 840px;
+    /* min-height: 800px; */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -30663,15 +30669,15 @@ margin-top:120px !important;
 
 .edu-header.header-fullwidth .header-mainmenu,
   .edu-header.header-fullwidth .header-top-bar {
-    padding-left: 62px;
-    padding-right: 62px;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 @media only screen and (max-width: 1699px) {
     .edu-header.header-fullwidth .header-mainmenu,
       .edu-header.header-fullwidth .header-top-bar {
-        padding-left: 22px;
-        padding-right: 22px;
+        padding-left: 2px;
+        padding-right: 2px;
     }
 }
 
@@ -31509,6 +31515,7 @@ margin-top:120px !important;
 
 .mainmenu-nav .mainmenu li.has-droupdown .submenu li {
     position: relative;
+    white-space: nowrap;
 }
 
 .mainmenu-nav .mainmenu li.has-droupdown .submenu li a {
@@ -34435,7 +34442,12 @@ blockquote:after {
         0 4px 12px rgba(0, 0, 0, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
-
+.contentquote .quote1{
+    text-decoration: underline;
+    font-family: var(--font-primary);
+    font-size: var(--h5);
+    color: var(--color-primary);
+}
 
 @media only screen and (max-width: 767px) {
     blockquote:after {
