@@ -1,0 +1,78 @@
+<svg width="1920" height="840" viewBox="0 0 1920 840" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1920" height="840" fill="#F0F4F5"/>
+
+  <mask id="mask0" maskUnits="userSpaceOnUse" x="0" y="0" width="1920" height="840">
+    <rect width="1920" height="840" fill="#F0F4F5"/>
+  </mask>
+
+  <g mask="url(#mask0)">
+
+    <!-- Green -->
+    <g opacity="0.2" filter="url(#filter0)">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M531 248C651.95 248 750 346.05 750 467C750 587.95 651.95 686 531 686C410.05 686 312 587.95 312 467C312 346.05 410.05 248 531 248Z"
+            fill="#1AB69D"/>
+    </g>
+
+    <!-- 🔵 Soft Blue (Replaced Orange) -->
+    <g opacity="0.3" filter="url(#filter1)">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M220.5 -4C344.488 -4 445 96.512 445 220.5C445 344.488 344.488 445 220.5 445C96.512 445 -4 344.488 -4 220.5C-4 96.512 96.512 -4 220.5 -4Z"
+            fill="#5DA9E9"/>
+    </g>
+
+    <!-- Red -->
+    <g opacity="0.25" filter="url(#filter2)">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M1750 421C1846.65 421 1925 499.35 1925 596C1925 692.65 1846.65 771 1750 771C1653.35 771 1575 692.65 1575 596C1575 499.35 1653.35 421 1750 421Z"
+            fill="#EE4A62"/>
+    </g>
+
+    <!-- Purple -->
+    <g opacity="0.2" filter="url(#filter3)">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M1499.5 103C1623.49 103 1724 203.512 1724 327.5C1724 451.488 1623.49 552 1499.5 552C1375.51 552 1275 451.488 1275 327.5C1275 203.512 1375.51 103 1499.5 103Z"
+            fill="#8358FF"/>
+    </g>
+
+    <!-- White Glows -->
+    <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd"
+          d="M329 -408C534.45 -408 701 -241.45 701 -36C701 169.45 534.45 336 329 336C123.55 336 -43 169.45 -43 -36C-43 -241.45 123.55 -408 329 -408Z"
+          fill="white"/>
+
+    <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd"
+          d="M1990 372C2161.76 372 2301 511.239 2301 683C2301 854.761 2161.76 994 1990 994C1818.24 994 1679 854.761 1679 683C1679 511.239 1818.24 372 1990 372Z"
+          fill="white"/>
+
+    <!-- ⚪ Bottom Light White Gradient -->
+    <rect width="1920" height="840" fill="url(#bottomWhiteFade)"/>
+
+  </g>
+
+  <defs>
+    <!-- Filters -->
+    <filter id="filter0" x="32" y="-32" width="998" height="998" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="140"/>
+    </filter>
+
+    <filter id="filter1" x="-264" y="-264" width="969" height="969" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="130"/>
+    </filter>
+
+    <filter id="filter2" x="1295" y="141" width="910" height="910" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="140"/>
+    </filter>
+
+    <filter id="filter3" x="995" y="-177" width="1009" height="1009" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="140"/>
+    </filter>
+
+    <!-- Bottom White Gradient -->
+    <linearGradient id="bottomWhiteFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0"/>
+      <stop offset="60%" stop-color="white" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+</svg>
