@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /customer-login
+Disallow: /admin
+Disallow: /api/
+
+# Delay between requests (in seconds)
+Crawl-delay: 1
+
+# Specific sitemap
+Sitemap: https://sccodeworks.com/sitemap.xml
