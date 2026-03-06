@@ -1,0 +1,1237 @@
+[
+  {
+    "file": "blog-details\\blog-details.component.html",
+    "tag": "h3",
+    "content": "EDI Integrations for 3PLs:<br>\r\n                            Tackling Challenges and Embracing Best Practices"
+  },
+  {
+    "file": "blog-details\\blog-details.component.html",
+    "tag": "h5",
+    "content": "Understanding the Challenges"
+  },
+  {
+    "file": "blog-details\\blog-details.component.html",
+    "tag": "h5",
+    "content": "Best Practices for EDI Integration"
+  },
+  {
+    "file": "blog-details\\blog-details.component.html",
+    "tag": "h5",
+    "content": "Benefits of Seamless EDI Integration"
+  },
+  {
+    "file": "blog-details\\blog-details.component.html",
+    "tag": "h5",
+    "content": "Embracing the Future of 3PL with EDI Integration"
+  },
+  {
+    "file": "blog-details10\\blog-details10.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details10\\blog-details10.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details11\\blog-details11.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details11\\blog-details11.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details12\\blog-details12.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details12\\blog-details12.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details13\\blog-details13.component.html",
+    "tag": "h3",
+    "content": "Tips to Maximize Your Space Utilization"
+  },
+  {
+    "file": "blog-details13\\blog-details13.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details13\\blog-details13.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details14\\blog-details14.component.html",
+    "tag": "h3",
+    "content": "WMS vs ERP\r\n                            Which one is right for you?"
+  },
+  {
+    "file": "blog-details14\\blog-details14.component.html",
+    "tag": "h5",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details14\\blog-details14.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details14\\blog-details14.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details14\\blog-details14.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details15\\blog-details15.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details15\\blog-details15.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details16\\blog-details16.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details16\\blog-details16.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details17\\blog-details17.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details17\\blog-details17.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details17\\blog-details17.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details18\\blog-details18.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details18\\blog-details18.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details18\\blog-details18.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details19\\blog-details19.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details19\\blog-details19.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details19\\blog-details19.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details19\\blog-details19.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details19\\blog-details19.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details2\\blog-details2.component.html",
+    "tag": "h3",
+    "content": "A Look at Line-Side Kitting:\r\n                Streamlining Assembly Operations with Precise Delivery"
+  },
+  {
+    "file": "blog-details2\\blog-details2.component.html",
+    "tag": "h5",
+    "content": "Understanding Precise Delivery"
+  },
+  {
+    "file": "blog-details2\\blog-details2.component.html",
+    "tag": "h5",
+    "content": "Benefits of Precise Delivery"
+  },
+  {
+    "file": "blog-details2\\blog-details2.component.html",
+    "tag": "h5",
+    "content": "Implementing Line-Side Kitting"
+  },
+  {
+    "file": "blog-details2\\blog-details2.component.html",
+    "tag": "h5",
+    "content": "Technology and Tools for Precise Delivery"
+  },
+  {
+    "file": "blog-details2\\blog-details2.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details20\\blog-details20.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details20\\blog-details20.component.html",
+    "tag": "h5",
+    "content": "The Role of a WMS in Warehousing Hazardous Materials"
+  },
+  {
+    "file": "blog-details20\\blog-details20.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details21\\blog-details21.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details21\\blog-details21.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details22\\blog-details22.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details22\\blog-details22.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details23\\blog-details23.component.html",
+    "tag": "h3",
+    "content": "How the Right WMS Can Help You Fight Rising Costs"
+  },
+  {
+    "file": "blog-details23\\blog-details23.component.html",
+    "tag": "h5",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details23\\blog-details23.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details23\\blog-details23.component.html",
+    "tag": "h5",
+    "content": "The Negative Effects on Profit"
+  },
+  {
+    "file": "blog-details23\\blog-details23.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details23\\blog-details23.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details24\\blog-details24.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details24\\blog-details24.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details24\\blog-details24.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details24\\blog-details24.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details25\\blog-details25.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details25\\blog-details25.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details25\\blog-details25.component.html",
+    "tag": "h5",
+    "content": "{{ blog.sections1[i].heading }}"
+  },
+  {
+    "file": "blog-details25\\blog-details25.component.html",
+    "tag": "h5",
+    "content": "{{ blog.sections2[i].heading }}"
+  },
+  {
+    "file": "blog-details25\\blog-details25.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details26\\blog-details26.component.html",
+    "tag": "h3",
+    "content": "4 Key Takeaways\r\n                            Nextgen Supply Chain Conference"
+  },
+  {
+    "file": "blog-details26\\blog-details26.component.html",
+    "tag": "h5",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details26\\blog-details26.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details27\\blog-details27.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details27\\blog-details27.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details28\\blog-details28.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details28\\blog-details28.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details28\\blog-details28.component.html",
+    "tag": "h3",
+    "content": "Download our Comprehensive Guide"
+  },
+  {
+    "file": "blog-details29\\blog-details29.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details29\\blog-details29.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details3\\blog-details3.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details3\\blog-details3.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details3\\blog-details3.component.html",
+    "tag": "h5",
+    "content": "How to Measure Picking Efficiencies"
+  },
+  {
+    "file": "blog-details3\\blog-details3.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details30\\blog-details30.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details30\\blog-details30.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details31\\blog-details31.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details31\\blog-details31.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details32\\blog-details32.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details32\\blog-details32.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details32\\blog-details32.component.html",
+    "tag": "h3",
+    "content": "Download Our ROI Calculator for EDI"
+  },
+  {
+    "file": "blog-details33\\blog-details33.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details33\\blog-details33.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details34\\blog-details34.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details34\\blog-details34.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details35\\blog-details35.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details35\\blog-details35.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details36\\blog-details36.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details36\\blog-details36.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details37\\blog-details37.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details37\\blog-details37.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details38\\blog-details38.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details38\\blog-details38.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details39\\blog-details39.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details39\\blog-details39.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details39\\blog-details39.component.html",
+    "tag": "h3",
+    "content": "Calculator"
+  },
+  {
+    "file": "blog-details39\\blog-details39.component.html",
+    "tag": "h3",
+    "content": "Results:"
+  },
+  {
+    "file": "blog-details39\\blog-details39.component.html",
+    "tag": "h3",
+    "content": "Recommendations:"
+  },
+  {
+    "file": "blog-details4\\blog-details4.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details4\\blog-details4.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details4\\blog-details4.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "blog-details40\\blog-details40.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details40\\blog-details40.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details41\\blog-details41.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details41\\blog-details41.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details42\\blog-details42.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details42\\blog-details42.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details42\\blog-details42.component.html",
+    "tag": "h3",
+    "content": "Ultimate Guide to WMS"
+  },
+  {
+    "file": "blog-details43\\blog-details43.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details43\\blog-details43.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details44\\blog-details44.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details44\\blog-details44.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details45\\blog-details45.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details45\\blog-details45.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details46\\blog-details46.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details46\\blog-details46.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details47\\blog-details47.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details47\\blog-details47.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details48\\blog-details48.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details48\\blog-details48.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details49\\blog-details49.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details49\\blog-details49.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details5\\blog-details5.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details5\\blog-details5.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details50\\blog-details50.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details50\\blog-details50.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details51\\blog-details51.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details51\\blog-details51.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details52\\blog-details52.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details52\\blog-details52.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details53\\blog-details53.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details53\\blog-details53.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details53\\blog-details53.component.html",
+    "tag": "h3",
+    "content": "Your KPI Playbook for Smarter Warehousing + Get the Free Template Set the\r\n                        Foundation: Collect Clean, Actionable Data"
+  },
+  {
+    "file": "blog-details54\\blog-details54.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details54\\blog-details54.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details55\\blog-details55.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details55\\blog-details55.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details56\\blog-details56.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details56\\blog-details56.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details57\\blog-details57.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details57\\blog-details57.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details58\\blog-details58.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details58\\blog-details58.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details59\\blog-details59.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details59\\blog-details59.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details6\\blog-details6.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details6\\blog-details6.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details60\\blog-details60.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details60\\blog-details60.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details61\\blog-details61.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details61\\blog-details61.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details62\\blog-details62.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details62\\blog-details62.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details63\\blog-details63.component.html",
+    "tag": "h3",
+    "content": "{{ blog.title }}"
+  },
+  {
+    "file": "blog-details63\\blog-details63.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "blog-details7\\blog-details7.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details7\\blog-details7.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details7\\blog-details7.component.html",
+    "tag": "h5",
+    "content": "Key Differences: 3PL - 4PL - 5PL"
+  },
+  {
+    "file": "blog-details7\\blog-details7.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details8\\blog-details8.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details8\\blog-details8.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details9\\blog-details9.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "blog-details9\\blog-details9.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "blog-details9\\blog-details9.component.html",
+    "tag": "h5",
+    "content": "Conclusion"
+  },
+  {
+    "file": "case-studies1\\case-studies1.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies1\\case-studies1.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies1\\case-studies1.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies1\\case-studies1.component.html",
+    "tag": "h5",
+    "content": "<br>Company Snapshot"
+  },
+  {
+    "file": "case-studies10\\case-studies10.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies10\\case-studies10.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies10\\case-studies10.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies11\\case-studies11.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies11\\case-studies11.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies11\\case-studies11.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies11\\case-studies11.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies12\\case-studies12.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies12\\case-studies12.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies12\\case-studies12.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies12\\case-studies12.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies13\\case-studies13.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies13\\case-studies13.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies13\\case-studies13.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies14\\case-studies14.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies14\\case-studies14.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies14\\case-studies14.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies15\\case-studies15.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies15\\case-studies15.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies15\\case-studies15.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies16\\case-studies16.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies16\\case-studies16.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies16\\case-studies16.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies16\\case-studies16.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies17\\case-studies17.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies17\\case-studies17.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies17\\case-studies17.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies18\\case-studies18.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies18\\case-studies18.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies18\\case-studies18.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies18\\case-studies18.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies19\\case-studies19.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies19\\case-studies19.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies19\\case-studies19.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies19\\case-studies19.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies2\\case-studies2.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies2\\case-studies2.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies20\\case-studies20.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies20\\case-studies20.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies20\\case-studies20.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies21\\case-studies21.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies21\\case-studies21.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies21\\case-studies21.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies22\\case-studies22.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies22\\case-studies22.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies22\\case-studies22.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies22\\case-studies22.component.html",
+    "tag": "h5",
+    "content": "Conclusion:"
+  },
+  {
+    "file": "case-studies22\\case-studies22.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies3\\case-studies3.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies3\\case-studies3.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies3\\case-studies3.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies3\\case-studies3.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies4\\case-studies4.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies4\\case-studies4.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies4\\case-studies4.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies5\\case-studies5.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies5\\case-studies5.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies5\\case-studies5.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies6\\case-studies6.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies6\\case-studies6.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies6\\case-studies6.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies7\\case-studies7.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies7\\case-studies7.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies7\\case-studies7.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies7\\case-studies7.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "case-studies8\\case-studies8.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies8\\case-studies8.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies9\\case-studies9.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "case-studies9\\case-studies9.component.html",
+    "tag": "h5",
+    "content": "Key Metrics"
+  },
+  {
+    "file": "case-studies9\\case-studies9.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "case-studies9\\case-studies9.component.html",
+    "tag": "h5",
+    "content": "Company Snapshot"
+  },
+  {
+    "file": "privacy-policy\\privacy-policy.component.html",
+    "tag": "h3",
+    "content": "Privacy Policy"
+  },
+  {
+    "file": "privacy-policy\\privacy-policy.component.html",
+    "tag": "h5",
+    "content": "{{ section.heading }}"
+  },
+  {
+    "file": "white-paper-details1\\white-paper-details1.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "white-paper-details1\\white-paper-details1.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  },
+  {
+    "file": "white-paper-details2\\white-paper-details2.component.html",
+    "tag": "h3",
+    "content": "{{ blog?.title }}"
+  },
+  {
+    "file": "white-paper-details2\\white-paper-details2.component.html",
+    "tag": "h5",
+    "content": "{{ section?.heading }}"
+  }
+]
