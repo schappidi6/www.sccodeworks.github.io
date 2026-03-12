@@ -42482,17 +42482,42 @@ html[dir="rtl"] .swiper-testimonial-slider-wrapper .swiper-slide.swiper-slide-vi
     width: 60%;
     background: linear-gradient(90deg, #0d6efd, #4dabf7);
 }
+.increase-bar-full {
+    width: 100%;
+    background: linear-gradient(90deg, #0d6efd, #4dabf7);
+}
+
 
 /* Headcount reduction (orange efficiency) */
 .reduction-bar {
     width: 60%;
     background: linear-gradient(90deg, #fd7e14, #ffb347);
 }
-
+.reduction-bar-full {
+    width: 100%;
+    background: linear-gradient(90deg, #fd7e14, #ffb347);
+}
 /* Compliance maintained (green success) */
 .success-bar-percentage {
     width: 100%;
     background: linear-gradient(90deg, #198754, #20c997);
+}
+.metric-before{
+    background:#ffe5e5;
+    color:#d9534f;
+    padding:6px 12px;
+    border-radius:6px;
+    font-weight:600;
+    display:inline-block;
+}
+
+.metric-after{
+    background:#e6f7ea;
+    color:#28a745;
+    padding:6px 12px;
+    border-radius:6px;
+    font-weight:600;
+    display:inline-block;
 }
 @keyframes growBar {
     from {
