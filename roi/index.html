@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC Codeworks ROI</title>
+<meta name="description" content="Calculate your WMS savings with Codeworks Enterprise vs NetSuite, SAP EWM, Manhattan Active, and Extensiv. See the true cost of ownership.">
+<meta property="og:title" content="ROI Calculator — SC Codeworks | Warehouse Management Solutions">
+<meta property="og:description" content="Calculate your WMS savings with Codeworks Enterprise vs NetSuite, SAP EWM, Manhattan Active, and Extensiv.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<style>
+/* === BASE RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px;
+}
+body {
+  min-height: 100dvh;
+  line-height: 1.6;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  color: #181818;
+  background-color: #f4f6f8;
+}
+img, picture, svg { display: block; max-width: 100%; height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.15; }
+p, li, figcaption { max-width: 72ch; }
+button { cursor: pointer; background: none; border: none; }
+table { border-collapse: collapse; width: 100%; }
+a, button, input, textarea, select {
+  transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+:root {
+  --font-display: 'League Spartan', 'Poppins', sans-serif;
+  --font-body: 'Poppins', 'Inter', sans-serif;
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  --color-primary: #00a9df;
+  --color-primary-hover: #087498;
+  --color-primary-light: #edf5f8;
+  --color-secondary: #84b641;
+  --color-navy: #172c59;
+  --gradient-brand: linear-gradient(-90deg, #172c59 0%, #069ed1 100%);
+  --color-savings: #84b641;
+  --color-savings-light: #f0f7e6;
+  --color-competitor: #dc2626;
+  --color-competitor-light: #fef2f2;
+  --color-warning: #FF8F3C;
+  --color-warning-light: #fff3e6;
+  --color-text-muted: #808080;
+  --color-text-faint: #aaaaaa;
+  --color-divider: #e5e5e5;
+  --color-border: #e0e0e0;
+  --color-surface-2: #F7F7F7;
+  --shadow-sm: 0px 2px 8px rgba(26,46,85,0.04);
+  --shadow-md: 0px 10px 50px 0px rgba(26,46,85,0.07);
+  --shadow-lg: 0px 15px 60px rgba(26,46,85,0.12);
+  --shadow-header: 0 2px 5px rgba(0,0,0,0.05);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+/* === APP HEADER (standalone app style like sign.sccodeworks.com) === */
+.app-header {
+  position: sticky; top: 0; z-index: 1000;
+  background: var(--gradient-brand);
+  height: 56px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.app-header-inner {
+  max-width: 1440px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%; padding: 0 1.25rem;
+}
+.app-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; gap: 0.75rem; }
+.app-logo-img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+.app-nav { display: flex; align-items: center; gap: 0.25rem; }
+.app-nav-tab {
+  font-family: var(--font-display); font-size: 0.8rem; font-weight: 600;
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  padding: 0.4rem 1rem; border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+.app-nav-tab:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.app-nav-tab.active { background: rgba(255,255,255,0.2); color: #fff; font-weight: 700; }
+.app-header-right { display: flex; align-items: center; gap: 0.75rem; }
+.app-user-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 0.75rem; font-family: var(--font-display);
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.app-signout {
+  color: rgba(255,255,255,0.7); cursor: pointer; padding: 4px;
+  border-radius: var(--radius-sm); display: flex; align-items: center;
+}
+.app-signout:hover { color: #fff; background: rgba(255,255,255,0.15); }
+@media (max-width: 640px) {
+  .app-nav-tab span { display: none; }
+  .app-header-inner { padding: 0 0.75rem; }
+}
+
+/* === PAGE TITLE BAR === */
+.page-title-bar {
+  background: #fff;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-bottom: 1px solid var(--color-divider);
+}
+.page-title-inner { max-width: 1280px; margin: 0 auto; }
+.page-title-bar h1 {
+  font-family: var(--font-display); font-size: var(--text-xl);
+  color: var(--color-navy); font-weight: 800;
+}
+.page-title-bar p {
+  color: var(--color-text-muted); font-size: var(--text-sm); margin-top: 0.25rem;
+}
+
+/* === HERO (hidden — replaced by page title bar) === */
+.hero {
+  display: none;
+  background: var(--gradient-brand);
+  padding: 4rem 1.5rem 5rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 1.25rem; border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.15); color: #fff;
+  font-family: var(--font-display); font-size: var(--text-xs);
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+}
+.hero h1 {
+  font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800;
+  letter-spacing: -0.02em; color: #fff; margin-bottom: 1.25rem; line-height: 1.1;
+}
+.hero p { font-size: var(--text-lg); color: rgba(255,255,255,0.85); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+.hero-dots {
+  position: absolute; bottom: -20px; right: -20px; width: 200px; height: 200px;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1.5px, transparent 1.5px);
+  background-size: 16px 16px; opacity: 0.6;
+}
+@media (max-width: 640px) { .hero { padding: 2.5rem 1rem 3rem; } }
+
+/* === PAGE WRAPPER === */
+.page-wrapper {
+  max-width: 1200px; margin: 0 auto;
+  padding: 1rem 1rem 3rem;
+  position: relative; z-index: 10; margin-top: -2.5rem;
+}
+@media (min-width: 768px) { .page-wrapper { padding: 1rem 2rem 4rem; } }
+
+/* === CALC CARD === */
+.calc-card {
+  background: #fff; border-radius: var(--radius-xl);
+  padding: 1.5rem 1.25rem; box-shadow: var(--shadow-md); margin-bottom: 2rem;
+}
+@media (min-width: 768px) { .calc-card { padding: 2rem; } }
+.calc-card h2 {
+  font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700;
+  letter-spacing: -0.02em; margin-bottom: 1.5rem; padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+.input-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 640px) { .input-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .input-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.input-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.input-group label { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 600; }
+.label-hint { font-family: var(--font-body); font-weight: 400; color: var(--color-text-muted); font-size: var(--text-xs); }
+.input-group select {
+  width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--color-border);
+  border-radius: var(--radius-md); background: var(--color-surface-2);
+  font-size: var(--text-base); color: #181818;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px;
+}
+.input-group select:focus { border-color: var(--color-primary); outline: none; box-shadow: 0 0 0 3px rgba(0,169,223,0.15); }
+.range-wrapper { display: flex; flex-direction: column; gap: 0.25rem; }
+.range-value { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; color: var(--color-primary); font-variant-numeric: tabular-nums; }
+input[type="range"] {
+  -webkit-appearance: none; appearance: none; height: 6px;
+  border-radius: var(--radius-full); background: var(--color-divider);
+  outline: none; border: none; padding: 0; cursor: pointer; width: 100%;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--color-primary); cursor: pointer; border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,169,223,0.3);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--color-primary); cursor: pointer; border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,169,223,0.3);
+}
+
+/* Unlimited users badge */
+.unlimited-badge {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--color-savings-light); border: 2px solid var(--color-savings);
+  border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-top: 1.25rem;
+}
+.unlimited-icon {
+  width: 40px; height: 40px; border-radius: 50%; background: var(--color-savings);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 20px; font-weight: 800; flex-shrink: 0;
+}
+.unlimited-text strong { font-family: var(--font-display); font-size: var(--text-sm); color: var(--color-navy); display: block; }
+.unlimited-text span { font-size: var(--text-xs); color: var(--color-text-muted); }
+
+/* Tier recommendation */
+.tier-recommendation { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--color-primary); }
+.tier-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+  border-radius: var(--radius-full); font-family: var(--font-display);
+  font-size: var(--text-sm); font-weight: 700; width: fit-content;
+}
+.tier-badge.essentials { background: var(--color-primary-light); color: var(--color-primary); }
+.tier-badge.professional { background: var(--color-warning-light); color: #b45309; }
+.tier-badge.enterprise { background: var(--color-primary-light); color: var(--color-primary-hover); }
+.tier-price { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; letter-spacing: -0.02em; }
+.tier-price span { font-size: var(--text-sm); font-weight: 400; color: var(--color-text-muted); }
+.tier-meta { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+.impl-breakdown { background: var(--color-surface-2); border-radius: var(--radius-lg); padding: 1rem 1.25rem; }
+.impl-breakdown-title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-divider); }
+.impl-line { display: flex; justify-content: space-between; align-items: center; padding: 0.25rem 0; font-size: var(--text-xs); color: var(--color-text-muted); }
+.impl-line span:last-child { font-weight: 600; color: #181818; font-variant-numeric: tabular-nums; }
+.tier-includes { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tier-includes .tag {
+  padding: 0.25rem 0.75rem; border-radius: var(--radius-full);
+  background: var(--color-savings-light); font-size: var(--text-xs);
+  color: var(--color-secondary); font-weight: 600;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.tier-includes .tag::before { content: '\2713'; font-weight: 800; color: var(--color-secondary); }
+
+/* === RESULTS === */
+.results-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+@media (min-width: 768px) { .results-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1024px) { .results-grid { grid-template-columns: repeat(3, 1fr); } }
+.result-card {
+  background: #fff; border-radius: var(--radius-xl); padding: 1.5rem;
+  box-shadow: var(--shadow-md); transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.result-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.result-card.highlight { border: 2px solid var(--color-savings); background: var(--color-savings-light); }
+.result-card h3 {
+  font-family: var(--font-display); font-size: var(--text-sm); font-weight: 600;
+  color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;
+}
+.result-value { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.result-value.savings { color: var(--color-savings); }
+.result-value.competitor { color: var(--color-competitor); }
+.result-value.primary { color: var(--color-primary); }
+.result-sub { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 0.25rem; }
+
+/* === COMPETITOR SELECTOR === */
+.competitor-selector-section { background: #fff; border-radius: var(--radius-xl); padding: 1.5rem 1.25rem; margin-bottom: 2rem; box-shadow: var(--shadow-md); }
+@media (min-width: 768px) { .competitor-selector-section { padding: 2rem; } }
+.competitor-selector-section h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.selector-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); margin-bottom: 1.25rem; }
+.comp-selector-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+@media (min-width: 480px) { .comp-selector-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 768px) { .comp-selector-grid { grid-template-columns: 1fr 1fr 1fr; } }
+@media (min-width: 1024px) { .comp-selector-grid { grid-template-columns: repeat(4, 1fr); } }
+.comp-checkbox {
+  display: flex; flex-direction: column; gap: 2px; padding: 0.75rem 1rem;
+  border: 2px solid var(--color-divider); border-radius: var(--radius-lg);
+  cursor: pointer; transition: all 180ms ease; position: relative; background: #fff;
+}
+.comp-checkbox:hover { border-color: var(--color-primary); background: var(--color-primary-light); }
+.comp-checkbox.active { border-color: var(--color-primary); background: var(--color-primary-light); box-shadow: 0 0 0 1px var(--color-primary); }
+.comp-checkbox input[type="checkbox"] { position: absolute; top: 0.75rem; right: 0.75rem; width: 18px; height: 18px; accent-color: var(--color-primary); cursor: pointer; }
+.comp-checkbox-name { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; padding-right: 24px; }
+.comp-checkbox-tier { font-size: 0.7rem; color: var(--color-text-muted); }
+
+/* === HIDDEN COST BREAKDOWN === */
+.hidden-cost-section { background: #fff; border: 2px solid var(--color-competitor); border-radius: var(--radius-xl); padding: 1.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-md); }
+.hidden-cost-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--color-divider); flex-wrap: wrap; gap: 0.5rem; }
+.hidden-cost-header span:first-child { font-family: var(--font-display); font-weight: 700; font-size: var(--text-base); }
+.hidden-cost-total { font-family: var(--font-display); font-weight: 800; font-size: var(--text-lg); color: var(--color-competitor); }
+.hidden-cost-items { display: flex; flex-direction: column; gap: 0.75rem; }
+.hidden-cost-item { display: grid; grid-template-columns: 60px 1fr auto; gap: 0.75rem; align-items: center; }
+.hidden-cost-bar-track { height: 6px; background: var(--color-surface-2); border-radius: var(--radius-full); overflow: hidden; }
+.hidden-cost-bar-fill { height: 100%; background: var(--color-competitor); border-radius: var(--radius-full); opacity: 0.6; }
+.hidden-cost-label { font-size: var(--text-sm); color: var(--color-text-muted); }
+.hidden-cost-value { font-weight: 600; font-size: var(--text-sm); color: var(--color-competitor); font-variant-numeric: tabular-nums; text-align: right; }
+.hidden-cost-note { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-divider); font-size: var(--text-xs); color: var(--color-text-faint); line-height: 1.5; }
+@media (max-width: 480px) {
+  .hidden-cost-item { grid-template-columns: 1fr auto; }
+  .hidden-cost-bar-track { display: none; }
+}
+
+/* === BAR CHART === */
+.tco-chart { display: flex; flex-direction: column; gap: 1rem; padding: 2rem; background: #fff; border-radius: var(--radius-xl); margin-bottom: 2rem; box-shadow: var(--shadow-md); }
+.tco-chart h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+.chart-subtitle { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: -0.5rem; margin-bottom: 0.5rem; }
+.bar-row { display: flex; align-items: center; gap: 1rem; }
+.bar-label { min-width: 140px; font-family: var(--font-display); font-size: var(--text-sm); font-weight: 600; flex-shrink: 0; }
+.bar-track { flex: 1; height: 36px; background: var(--color-surface-2); border-radius: var(--radius-md); position: relative; overflow: hidden; min-width: 120px; width: 100%; }
+.bar-fill { height: 100%; border-radius: var(--radius-md); display: flex; align-items: center; padding: 0 0.75rem; font-size: var(--text-xs); font-weight: 700; color: white; white-space: nowrap; transition: width 600ms cubic-bezier(0.16,1,0.3,1); min-width: fit-content; }
+.bar-fill.sc { background: var(--color-primary); }
+.bar-fill.competitor { background: var(--color-competitor); opacity: 0.85; }
+.bar-fill.competitor-med { background: #e67e22; opacity: 0.85; }
+.bar-value { margin-right: 0.5rem; }
+.bar-quoted { font-weight: 400; font-size: 0.85em; opacity: 0.8; }
+@media (max-width: 640px) { .bar-row { flex-direction: column; align-items: flex-start; gap: 0.25rem; } .bar-label { min-width: auto; } }
+
+/* === COMPARISON TABLE === */
+.comparison-section { margin-bottom: 2rem; background: var(--color-surface-2); padding: 2rem 1.5rem; border-radius: var(--radius-xl); }
+.comparison-section h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+.table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); position: relative; }
+.comparison-table { min-width: 100%; font-size: var(--text-sm); background: #fff; table-layout: auto; }
+.comparison-table thead { background: var(--gradient-brand); }
+.comparison-table th { padding: 0.75rem 1rem; text-align: left; font-family: var(--font-display); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(255,255,255,0.9); white-space: nowrap; min-width: 120px; }
+.comparison-table th:first-child { min-width: 130px; position: sticky; left: 0; z-index: 2; background: var(--color-navy); }
+.comparison-table td:first-child { position: sticky; left: 0; z-index: 1; background: #fff; }
+.comparison-table th.th-sc { background: rgba(255,255,255,0.1); color: #fff; }
+.comparison-table td { padding: 0.75rem 1rem; border-top: 1px solid var(--color-divider); vertical-align: top; font-variant-numeric: tabular-nums; }
+.cost-cell { font-weight: 700; }
+.cost-cell.high { color: var(--color-competitor); }
+.cost-cell.low { color: var(--color-savings); }
+
+/* === SOURCES === */
+.sources-section { padding: 1.5rem; background: #fff; border-radius: var(--radius-xl); margin-bottom: 2rem; box-shadow: var(--shadow-md); }
+.sources-section h3 { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; color: var(--color-text-muted); margin-bottom: 0.75rem; }
+.sources-section p { font-size: var(--text-xs); color: var(--color-text-faint); line-height: 1.8; }
+.sources-section a { color: var(--color-primary); text-decoration: none; }
+.sources-section a:hover { text-decoration: underline; }
+
+/* === CTA === */
+.cta-section { text-align: center; padding: 3rem 1.5rem; background: var(--gradient-brand); border-radius: var(--radius-xl); margin-bottom: 2rem; position: relative; overflow: hidden; }
+.cta-section::after { content: ''; position: absolute; top: -20px; left: -20px; width: 160px; height: 160px; background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1.5px, transparent 1.5px); background-size: 14px 14px; opacity: 0.5; }
+.cta-section h2 { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 800; color: white; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+.cta-section p { color: rgba(255,255,255,0.85); margin: 0 auto 1.5rem; max-width: 480px; position: relative; z-index: 1; }
+.btn-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 12px 32px; background: white; color: var(--color-primary); font-family: var(--font-display); font-weight: 700; font-size: var(--text-sm); border-radius: 5px; text-decoration: none; box-shadow: var(--shadow-md); position: relative; z-index: 1; transition: transform 180ms ease, box-shadow 180ms ease; }
+.btn-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* === FOOTER === */
+/* === APP FOOTER (slim standalone) === */
+.app-footer {
+  text-align: center; padding: 1.5rem; margin-top: 1rem;
+  border-top: 1px solid var(--color-divider);
+}
+.app-footer p { font-size: var(--text-xs); color: var(--color-text-muted); max-width: none; }
+.app-footer a { color: var(--color-primary); text-decoration: none; font-weight: 500; }
+.app-footer a:hover { text-decoration: underline; }
+
+/* === AUTH LOGIN SCREEN === */
+.auth-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999;
+  background: linear-gradient(135deg, #0c1e3d 0%, #1a3a6b 40%, #087498 100%);
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 400ms ease, visibility 400ms ease;
+}
+.auth-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.auth-card {
+  background: #fff; border-radius: 16px; padding: 3rem 2.5rem; width: 100%; max-width: 440px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3); text-align: center; margin: 1rem;
+}
+.auth-logo { height: 48px; width: auto; margin: 0 auto 1.5rem; }
+.auth-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: #181818; margin-bottom: 0.5rem; }
+.auth-subtitle { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 0.25rem; line-height: 1.5; }
+.auth-hint { font-size: 0.8rem; color: var(--color-text-faint); margin-bottom: 2rem; }
+.auth-divider { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; color: var(--color-text-faint); font-size: 0.8rem; }
+.auth-divider::before, .auth-divider::after { content: ''; flex: 1; height: 1px; background: var(--color-divider); }
+.auth-btn {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  width: 100%; padding: 14px 20px; border: 2px solid var(--color-border);
+  border-radius: 10px; background: #fff; font-family: var(--font-body);
+  font-size: 0.95rem; font-weight: 600; color: #181818; cursor: pointer;
+  transition: all 180ms ease; margin-bottom: 12px;
+}
+.auth-btn:hover { border-color: var(--color-primary); background: var(--color-primary-light); box-shadow: 0 4px 12px rgba(0,169,223,0.15); }
+.auth-btn svg { flex-shrink: 0; }
+.auth-footer { margin-top: 2rem; font-size: 0.75rem; color: var(--color-text-faint); line-height: 1.5; }
+.auth-footer a { color: var(--color-primary); text-decoration: none; }
+
+/* === ANIMATION === */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeInUp 400ms cubic-bezier(0.16,1,0.3,1) forwards; opacity: 0; }
+.animate-in:nth-child(2) { animation-delay: 80ms; }
+.animate-in:nth-child(3) { animation-delay: 160ms; }
+.animate-in:nth-child(4) { animation-delay: 240ms; }
+</style>
+</head>
+<body>
+
+<!-- AUTH LOGIN SCREEN -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-card">
+    <img src="https://www.sccodeworks.com/assets/images/logo/logo-light-2.png" alt="SC Codeworks" class="auth-logo">
+    <h2 class="auth-title">ROI Calculator</h2>
+    <p class="auth-subtitle">Sign in to continue</p>
+    <p class="auth-hint">Use your Google or Microsoft 365 account</p>
+
+    <button class="auth-btn" id="auth-google">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Continue with Google
+    </button>
+
+    <button class="auth-btn" id="auth-microsoft">
+      <svg width="20" height="20" viewBox="0 0 21 21"><rect x="1" y="1" width="9" height="9" fill="#f25022"/><rect x="11" y="1" width="9" height="9" fill="#7fba00"/><rect x="1" y="11" width="9" height="9" fill="#00a4ef"/><rect x="11" y="11" width="9" height="9" fill="#ffb900"/></svg>
+      Continue with Microsoft 365
+    </button>
+
+    <div class="auth-footer">
+      Access is restricted to approved team members.<br>Contact your administrator for access.
+    </div>
+  </div>
+</div>
+
+<!-- APP HEADER (standalone app like sign.sccodeworks.com) -->
+<header class="app-header" id="app-header">
+  <div class="app-header-inner">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <a class="app-logo" href="#">
+        <img src="https://www.sccodeworks.com/assets/images/logo/logo-light-2.png" alt="SC Codeworks" class="app-logo-img">
+      </a>
+      <nav class="app-nav">
+        <a href="#" class="app-nav-tab active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:4px;vertical-align:-2px"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg><span>ROI Calculator</span></a>
+      </nav>
+    </div>
+    <div class="app-header-right" id="app-header-right" style="display:none;">
+      <div class="app-user-avatar" id="user-initials">U</div>
+      <button class="app-signout" id="app-signout" title="Sign out">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE TITLE BAR -->
+<div class="page-title-bar">
+  <div class="page-title-inner">
+    <h1>ROI Calculator</h1>
+    <p>Enterprise-Grade WMS. Smarter Economics. Compare Codeworks vs 11 leading WMS vendors.</p>
+  </div>
+</div>
+
+<div class="page-wrapper">
+
+  <!-- CALCULATOR INPUTS -->
+  <div class="calc-card animate-in" id="calculator">
+    <h2>Your Warehouse Profile</h2>
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="warehouses">Number of Warehouses <span class="label-hint">Locations running WMS</span></label>
+        <div class="range-wrapper">
+          <span class="range-value" id="wh-val">2</span>
+          <input type="range" id="warehouses" min="1" max="20" value="2" step="1">
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="wh-size">Warehouse Size (Avg per Site) <span class="label-hint">Total sq ft per location</span></label>
+        <select id="wh-size">
+          <option value="10000">Under 25,000 sq ft</option>
+          <option value="50000" selected>25,000 — 100,000 sq ft</option>
+          <option value="250000">100,000 — 500,000 sq ft</option>
+          <option value="750000">500,000+ sq ft</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="users">Active WMS Users <span class="label-hint">Adjusts competitor per-user fees only</span></label>
+        <div class="range-wrapper">
+          <span class="range-value" id="user-val">25</span>
+          <input type="range" id="users" min="5" max="500" value="25" step="5">
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="orders">Monthly Order Lines <span class="label-hint">Pick/pack/ship lines per month</span></label>
+        <div class="range-wrapper">
+          <span class="range-value" id="order-val">50,000</span>
+          <input type="range" id="orders" min="5000" max="2000000" value="50000" step="5000">
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="revenue">Annual Company Revenue <span class="label-hint">Helps size the right tier</span></label>
+        <select id="revenue">
+          <option value="2">Under $2 Million</option>
+          <option value="5">$2M — $5 Million</option>
+          <option value="10" selected>$10M — $50 Million</option>
+          <option value="50">$50M — $250 Million</option>
+          <option value="250">$250M — $500 Million</option>
+          <option value="500">$500M — $1B</option>
+          <option value="1000">$1B+</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="current-wms">Current WMS <span class="label-hint">What you're replacing or comparing</span></label>
+        <select id="current-wms">
+          <option value="none" selected>No WMS / Manual</option>
+          <option value="netsuite">NetSuite WMS</option>
+          <option value="sap">SAP EWM</option>
+          <option value="manhattan">Manhattan Active</option>
+          <option value="extensiv">Extensiv / 3PL Central</option>
+          <option value="softeon">Softeon</option>
+          <option value="made4net">Made4net</option>
+          <option value="provision">ProVision WMS</option>
+          <option value="korber">Korber WMS</option>
+          <option value="blueyonder">Blue Yonder</option>
+          <option value="infor">Infor SCM</option>
+          <option value="deposco">Deposco</option>
+          <option value="other">Other WMS</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="integrations">ERP / Integration Needs <span class="label-hint">Systems connecting to WMS</span></label>
+        <select id="integrations">
+          <option value="basic">Basic (1-2 integrations)</option>
+          <option value="standard" selected>Standard (3-5 integrations)</option>
+          <option value="complex">Complex (6+ integrations)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Unlimited users badge -->
+    <div class="unlimited-badge">
+      <div class="unlimited-icon">&infin;</div>
+      <div class="unlimited-text">
+        <strong>Unlimited Users Included — Always</strong>
+        <span>Every SC Codeworks plan includes unlimited user licenses — no per-seat fees, ever. The users slider above only affects competitor per-user cost calculations.</span>
+      </div>
+    </div>
+
+    <!-- Tier Recommendation -->
+    <div class="tier-recommendation" id="tier-rec"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-grid animate-in" id="results">
+    <div class="result-card">
+      <h3>Codeworks — Year 1 Investment</h3>
+      <div class="result-value primary" id="sc-tco">$0</div>
+      <div class="result-sub" id="sc-breakdown">All-inclusive: license + implementation + AI + support</div>
+    </div>
+    <div class="result-card">
+      <h3>Comparable Competitor — Year 1 TCO</h3>
+      <div class="result-value competitor" id="comp-tco">$0</div>
+      <div class="result-sub" id="comp-breakdown">Based on selected WMS benchmark</div>
+    </div>
+    <div class="result-card highlight">
+      <h3>Net Advantage — Year 1</h3>
+      <div class="result-value savings" id="savings">$0</div>
+      <div class="result-sub" id="savings-pct">Same capability, smarter investment</div>
+    </div>
+    <div class="result-card">
+      <h3>3-Year Net Advantage</h3>
+      <div class="result-value savings" id="savings-3yr">$0</div>
+      <div class="result-sub">Including competitor hidden costs + escalators</div>
+    </div>
+    <div class="result-card">
+      <h3>5-Year Net Advantage</h3>
+      <div class="result-value savings" id="savings-5yr">$0</div>
+      <div class="result-sub">Hidden costs compound; transparent pricing doesn't</div>
+    </div>
+  </div>
+
+  <!-- COMPETITOR SELECTOR -->
+  <div class="competitor-selector-section animate-in">
+    <h2>Select Competitors to Compare</h2>
+    <p class="selector-subtitle">Choose which WMS vendors to include in the comparison. All pricing includes quantified hidden costs.</p>
+    <div id="competitor-selector"></div>
+  </div>
+
+  <!-- HIDDEN COST BREAKDOWN -->
+  <div class="hidden-cost-section animate-in" id="hidden-cost-detail"></div>
+
+  <!-- TCO BAR CHART -->
+  <div class="tco-chart animate-in" id="chart-section">
+    <h2>5-Year True TCO Comparison</h2>
+    <p class="chart-subtitle">Including quantified hidden costs, escalators, and recurring add-ons</p>
+    <div id="tco-bars"></div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="comparison-section animate-in">
+    <h2>Side-by-Side Breakdown</h2>
+    <div class="table-wrapper">
+      <table class="comparison-table" id="comp-table">
+        <thead><tr><th>Factor</th><th class="th-sc">SC Codeworks</th></tr></thead>
+        <tbody id="comp-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DATA SOURCES -->
+  <div class="sources-section">
+    <h3>Data Sources &amp; Methodology</h3>
+    <p>
+      Competitor pricing based on publicly available signals from
+      <a href="https://www.selecthub.com/p/warehouse-management-software/" target="_blank">SelectHub</a>,
+      <a href="https://www.g2.com/categories/warehouse-management" target="_blank">G2</a>,
+      <a href="https://www.capterra.com/warehouse-management-software/" target="_blank">Capterra</a>,
+      <a href="https://www.sap.com/products/scm/extended-warehouse-management/pricing.html" target="_blank">SAP Pricing</a>,
+      <a href="https://made4net.com/knowledge-center/how-much-does-wms-software-cost-budget-guide/" target="_blank">Made4net</a>,
+      <a href="https://provisionwms.com/price-sheet-and-faqs/" target="_blank">ProVision WMS</a>, and
+      <a href="https://www.trustradius.com/products/softeon-warehouse-management-system/pricing" target="_blank">TrustRadius</a>.
+      Actual costs vary by configuration, negotiation, and scope. SC Codeworks pricing reflects published Essentials, Professional, and Enterprise tier structures. Annual escalation capped at contract signing. Figures are estimates for comparison — contact us for a custom quote.
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready for a Value-Based Proposal?</h2>
+    <p>Get a custom TCO analysis tailored to your warehouse operations, integration requirements, and growth roadmap.</p>
+    <a href="https://www.sccodeworks.com/#contact" target="_blank" class="btn-cta">Schedule Executive Briefing &rarr;</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="app-footer">
+  <p>&copy; 2026 SC Codeworks. All rights reserved. &middot; <a href="https://www.sccodeworks.com/privacy" target="_blank">Privacy Policy</a> &middot; <a href="https://www.sccodeworks.com" target="_blank">sccodeworks.com</a></p>
+</footer>
+
+<script>
+// ============================================
+// SUPABASE AUTH (same project as sign.sccodeworks.com)
+// ============================================
+const SUPABASE_URL = 'https://sqrfuwxtkvyceuobfjhf.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxcmZ1d3h0a3Z5Y2V1b2JmamhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwMjg0MjEsImV4cCI6MjA4ODYwNDQyMX0.r42kkI5j6zL0qn_xo2NxeqnwAVQQzUwo2F1FfPu0jv0';
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function showUserHeader(user) {
+  const right = document.getElementById('app-header-right');
+  const initials = document.getElementById('user-initials');
+  right.style.display = 'flex';
+  if (user && user.user_metadata) {
+    const name = user.user_metadata.full_name || user.user_metadata.name || user.email || '';
+    const parts = name.split(' ');
+    initials.textContent = parts.length >= 2 ? (parts[0][0] + parts[1][0]).toUpperCase() : name.substring(0, 2).toUpperCase();
+  } else {
+    initials.textContent = 'U';
+  }
+}
+
+// Google OAuth
+document.getElementById('auth-google').addEventListener('click', async function() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin + window.location.pathname }
+  });
+  if (error) console.error('Google auth error:', error.message);
+});
+
+// Microsoft OAuth
+document.getElementById('auth-microsoft').addEventListener('click', async function() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'azure',
+    options: {
+      scopes: 'email profile openid',
+      redirectTo: window.location.origin + window.location.pathname
+    }
+  });
+  if (error) console.error('Microsoft auth error:', error.message);
+});
+
+// Sign out
+document.getElementById('app-signout').addEventListener('click', async function() {
+  await supabase.auth.signOut();
+  document.getElementById('auth-overlay').classList.remove('hidden');
+  document.getElementById('app-header-right').style.display = 'none';
+});
+
+// Check auth state on load (handles OAuth callback + session persistence)
+(async function checkAuth() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session && session.user) {
+    document.getElementById('auth-overlay').classList.add('hidden');
+    showUserHeader(session.user);
+  }
+  // Listen for auth state changes (OAuth callback redirect)
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' && session) {
+      document.getElementById('auth-overlay').classList.add('hidden');
+      showUserHeader(session.user);
+    } else if (event === 'SIGNED_OUT') {
+      document.getElementById('auth-overlay').classList.remove('hidden');
+      document.getElementById('app-header-right').style.display = 'none';
+    }
+  });
+})();
+
+// ============================================
+// COMPETITOR PRICING DATA
+// ============================================
+const COMPETITORS = {
+  netsuite: {
+    name: 'NetSuite WMS', tier: 'Tier 1 / ERP-Embedded',
+    baseLicense: (wh, users) => { const erpBase=24000; const perUser=users*125*12; const wmsModule=10000; return (erpBase+perUser+wmsModule)*Math.max(1,wh*0.7); },
+    implementation: (wh, users, cx) => { const b=50000; const pw=wh*25000; const m=cx==='complex'?2:cx==='standard'?1.3:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users, cx) => { const ms=lic*0.15; const ps=lic*0.20; const im=(cx==='complex'?15000:cx==='standard'?10000:5000); const cd=15000; const ru=lic*0.25; return { items: [{label:'Module add-ons (avg within 18 mo)',cost:ms},{label:'Premium support tier (20% of license)',cost:ps},{label:'Integration maintenance',cost:im},{label:'Customization & workflow changes',cost:cd},{label:'Yr 2 discount clawback (conservative)',cost:ru}], total:ms+ps+im+cd+ru }; },
+    annualEscalator: 0.075, implTimeline: (wh) => wh<=2?'3-6 months':'6-12 months', userModel: 'Per named user', hiddenSummary: 'Module add-ons, 20-60% renewal hikes, ERP lock-in',
+  },
+  sap: {
+    name: 'SAP EWM', tier: 'Tier 1 / Enterprise',
+    baseLicense: (wh, users) => { const pu=users*120*12*0.8; const s4=80000; return (s4+pu)*Math.max(1,wh*0.6); },
+    implementation: (wh, u, cx) => { const b=120000; const pw=wh*60000; const m=cx==='complex'?2.5:cx==='standard'?1.5:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users, cx) => { const sc=wh*20000; const s4=lic*0.10; const cu=lic*0.15; const td=users*500; const im=(cx==='complex'?20000:cx==='standard'?12000:8000); return { items: [{label:'SAP specialist consulting (per site)',cost:sc},{label:'S/4HANA platform overhead',cost:s4},{label:'Customization re-validation',cost:cu},{label:'Technical debt / workaround labor',cost:td},{label:'Integration maintenance',cost:im}], total:sc+s4+cu+td+im }; },
+    annualEscalator: 0.06, implTimeline: (wh) => wh<=2?'4-6 months':'6-12 months', userModel: 'Per named user + S/4HANA', hiddenSummary: 'S/4HANA required, specialist consultants, customization lock-in',
+  },
+  manhattan: {
+    name: 'Manhattan Active', tier: 'Tier 1 / Enterprise',
+    baseLicense: (wh, users) => wh*80000 + users*2000,
+    implementation: (wh, u, cx) => { const b=150000; const pw=wh*100000; const m=cx==='complex'?2:cx==='standard'?1.4:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users, cx) => { const lm=wh*15000; const bi=12000; const cp=lic*0.10; const tr=users*300; const cu=(cx==='complex'?25000:cx==='standard'?15000:8000); return { items: [{label:'Labor management module (per site)',cost:lm},{label:'BI / analytics add-on',cost:bi},{label:'Contract exit penalties (estimated)',cost:cp},{label:'Extended training costs',cost:tr},{label:'Customization premium',cost:cu}], total:lm+bi+cp+tr+cu }; },
+    annualEscalator: 0.07, implTimeline: (wh) => wh<=2?'6-9 months':'9-18 months', userModel: 'Per site + per user', hiddenSummary: 'Multi-year lock-in, labor mgmt/BI add-ons, $500K+ complex impl',
+  },
+  extensiv: {
+    name: 'Extensiv', tier: 'Tier 3 / 3PL-Focused',
+    baseLicense: (wh, users) => { const bp=199*12; const ec=Math.max(0,wh-1)*25*12; const edi=3*1200; return (bp+ec+edi)*Math.max(1,wh*0.8); },
+    implementation: (wh, u, cx) => 1000 + 1200*(cx==='complex'?8:cx==='standard'?4:2),
+    hiddenCosts: (lic, wh, users, cx) => { const ae=(cx==='complex'?5:cx==='standard'?3:1)*1200; const cr=350*6; const ef=Math.max(0,wh-1)*50*12; const sl=wh>3?5000:0; const items=[{label:'Additional EDI integrations',cost:ae},{label:'Custom reports ($350+ each)',cost:cr},{label:'Extra customer fees',cost:ef}]; if(sl>0) items.push({label:'Scale limitation workarounds',cost:sl}); return { items, total:ae+cr+ef+sl }; },
+    annualEscalator: 0.05, implTimeline: () => '1-4 weeks', userModel: 'Unlimited users (plan-based)', hiddenSummary: 'EDI fees ($1,200 ea), custom reports ($350+), per-customer charges',
+  },
+  softeon: {
+    name: 'Softeon', tier: 'Tier 1 / Enterprise',
+    baseLicense: (wh, users) => wh*70000 + users*1800,
+    implementation: (wh, u, cx) => { const b=100000; const pw=wh*75000; const m=cx==='complex'?1.8:cx==='standard'?1.3:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users) => { const pm=lic*0.12; const cs=wh*12000; const um=lic*0.08; const st=users*250; return { items: [{label:'Premium module add-ons',cost:pm},{label:'Configuration services (per site)',cost:cs},{label:'Upgrade management',cost:um},{label:'Specialist user training',cost:st}], total:pm+cs+um+st }; },
+    annualEscalator: 0.06, implTimeline: (wh) => wh<=2?'4-8 months':'6-12 months', userModel: 'Per site + per user', hiddenSummary: 'Premium module add-ons, configuration services, upgrade management',
+  },
+  made4net: {
+    name: 'Made4net', tier: 'Tier 2 / Mid-Market',
+    baseLicense: (wh, users) => { const pu=users*100*12; const pb=15000; return (pb+pu)*Math.max(1,wh*0.65); },
+    implementation: (wh, u, cx) => { const fw=cx==='complex'?200000:cx==='standard'?125000:75000; const aw=Math.max(0,wh-1)*(cx==='complex'?80000:50000); return fw+aw; },
+    hiddenCosts: (lic, wh, users, cx) => { const mf=lic*0.22; const ic=(cx==='complex'?40000:cx==='standard'?20000:10000); const dm=15000; const hw=users*800; return { items: [{label:'Annual maintenance (22% of license)',cost:mf},{label:'Integration costs (ERP/TMS)',cost:ic},{label:'Data migration & cleanup',cost:dm},{label:'Hardware (scanners, printers)',cost:hw}], total:mf+ic+dm+hw }; },
+    annualEscalator: 0.05, implTimeline: (wh) => wh<=2?'4-5 months':'5-9 months', userModel: 'Per named user', hiddenSummary: '22% annual maintenance, hardware costs, integration fees',
+  },
+  provision: {
+    name: 'ProVision WMS', tier: 'Tier 2-3 / 3PL-Focused',
+    baseLicense: (wh, users) => { const bp=users<=15?3000*12:users<=30?5000*12:8000*12; const ms=Math.max(0,wh-1)*2000*12; return bp+ms; },
+    implementation: (wh, u, cx) => { const b=cx==='complex'?60000:cx==='standard'?35000:20000; const pw=Math.max(0,wh-1)*15000; return b+pw; },
+    hiddenCosts: (lic, wh, users, cx) => { const cc=5000; const ll=users*300; const intf=(cx==='complex'?20000:cx==='standard'?12000:6000); const tr=users*200; return { items: [{label:'Configuration changes (extra)',cost:cc},{label:'Label design/print licenses',cost:ll},{label:'Integration fees',cost:intf},{label:'Training costs',cost:tr}], total:cc+ll+intf+tr }; },
+    annualEscalator: 0.04, implTimeline: (wh) => wh<=2?'2-4 months':'4-6 months', userModel: 'Tiered (RF users)', hiddenSummary: 'Config changes extra, label licenses, integration fees',
+  },
+  korber: {
+    name: 'Korber WMS', tier: 'Tier 1 / Enterprise',
+    baseLicense: (wh, users) => wh*65000 + users*1500,
+    implementation: (wh, u, cx) => { const b=100000; const pw=wh*65000; const m=cx==='complex'?2.0:cx==='standard'?1.4:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users, cx) => { const ma=lic*0.15; const ci=wh*8000; const cs=(cx==='complex'?25000:15000); const ur=lic*0.08; return { items: [{label:'Module add-ons (modular pricing)',cost:ma},{label:'Cloud infrastructure (per site)',cost:ci},{label:'Consulting & optimization',cost:cs},{label:'Upgrade re-validation',cost:ur}], total:ma+ci+cs+ur }; },
+    annualEscalator: 0.065, implTimeline: (wh) => wh<=2?'4-8 months':'6-12 months', userModel: 'Per user + modules', hiddenSummary: 'Modular pricing, cloud infra fees, consulting-heavy',
+  },
+  blueyonder: {
+    name: 'Blue Yonder', tier: 'Tier 1 / Enterprise',
+    baseLicense: (wh, users) => wh*90000 + users*2200,
+    implementation: (wh, u, cx) => { const b=175000; const pw=wh*100000; const m=cx==='complex'?2.2:cx==='standard'?1.5:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users, cx) => { const pf=lic*0.12; const ai=20000; const lm=wh*18000; const si=(cx==='complex'?40000:20000); return { items: [{label:'Platform & hosting fees',cost:pf},{label:'AI/ML optimization add-ons',cost:ai},{label:'Labor management (per site)',cost:lm},{label:'SI partner ongoing fees',cost:si}], total:pf+ai+lm+si }; },
+    annualEscalator: 0.07, implTimeline: (wh) => wh<=2?'6-9 months':'9-18 months', userModel: 'Per site + per user', hiddenSummary: 'Premium pricing, AI add-ons, SI partner dependency',
+  },
+  infor: {
+    name: 'Infor SCM', tier: 'Tier 1 / ERP-Embedded',
+    baseLicense: (wh, users) => users*150*12 + wh*30000,
+    implementation: (wh, u, cx) => { const b=80000; const pw=wh*50000; const m=cx==='complex'?2.5:cx==='standard'?1.6:1; return (b+pw)*m; },
+    hiddenCosts: (lic, wh, users, cx) => { const co=lic*0.10; const cu=(cx==='complex'?30000:cx==='standard'?18000:10000); const im=12000; const cf=wh*15000; return { items: [{label:'CloudSuite platform overhead',cost:co},{label:'Customization & interface costs',cost:cu},{label:'Interface maintenance',cost:im},{label:'Consultant fees (per site)',cost:cf}], total:co+cu+im+cf }; },
+    annualEscalator: 0.06, implTimeline: (wh) => wh<=2?'6-9 months':'9-18 months', userModel: 'Per named user', hiddenSummary: 'CloudSuite overhead, customization costs, long implementations',
+  },
+  deposco: {
+    name: 'Deposco', tier: 'Tier 2 / Cloud-Native',
+    baseLicense: (wh, users) => { const bp=users<=20?4000*12:users<=50?7000*12:10000*12; const ps=Math.max(0,wh-1)*3000*12; return bp+ps; },
+    implementation: (wh, u, cx) => { const b=cx==='complex'?50000:cx==='standard'?30000:15000; const pw=Math.max(0,wh-1)*12000; return b+pw; },
+    hiddenCosts: (lic, wh, users, cx) => { const intf=(cx==='complex'?18000:cx==='standard'?10000:5000); const am=8000; const sf=wh>3?wh*3000:0; const items=[{label:'Integration fees (ERP/ecommerce)',cost:intf},{label:'Advanced modules',cost:am}]; if(sf>0) items.push({label:'Multi-site scaling fees',cost:sf}); return { items, total:intf+am+sf }; },
+    annualEscalator: 0.05, implTimeline: () => '4-8 weeks', userModel: 'Platform-based', hiddenSummary: 'Integration fees, advanced module costs',
+  },
+};
+
+const DEFAULT_COMPETITORS = ['netsuite','sap','manhattan','extensiv'];
+let selectedCompetitors = [...DEFAULT_COMPETITORS];
+
+// ============================================
+// SC CODEWORKS PRICING — 2 TIERS, per warehouse, sized by sq ft, users NEVER affect price
+// ============================================
+function getSCPricing(wh, whSize, revenue, complexity) {
+  const isEnterprise = wh >= 3 || revenue >= 250;
+  const tier = isEnterprise ? 'Enterprise' : 'Essentials';
+
+  // Warehouse size multiplier (industry standard: larger facilities = more zones, automation, RF coverage)
+  const sizeMult = whSize >= 750000 ? 1.50 : whSize >= 250000 ? 1.30 : whSize >= 50000 ? 1.0 : 0.85;
+
+  let monthlyPerSite, implDetails;
+
+  if (tier === 'Essentials') {
+    monthlyPerSite = Math.round(5000 * sizeMult / 100) * 100;
+    if (complexity === 'complex') monthlyPerSite += 500;
+
+    const discovery = Math.round(6000 * sizeMult);
+    const configuration = Math.round((complexity === 'complex' ? 16000 : complexity === 'standard' ? 11000 : 8000) * sizeMult);
+    const dataMigration = 5000;
+    const integrations = complexity === 'complex' ? 12000 : complexity === 'standard' ? 8000 : 4000;
+    const training = 5000;
+    const goLiveSupport = 5500;
+    implDetails = { discovery, configuration, dataMigration, integrations, training, goLiveSupport, total: discovery + configuration + dataMigration + integrations + training + goLiveSupport };
+  } else {
+    monthlyPerSite = Math.round(10000 * sizeMult / 100) * 100;
+    if (revenue >= 500) monthlyPerSite += 3000;
+    if (revenue >= 1000) monthlyPerSite += 2000;
+    if (complexity === 'complex') monthlyPerSite += 3500;
+
+    const discovery = Math.round(20000 * sizeMult);
+    const solutionDesign = Math.round(15000 * sizeMult);
+    const configPerSite = Math.round((complexity === 'complex' ? 22000 : complexity === 'standard' ? 16000 : 12000) * sizeMult) * wh;
+    const dataMigration = 10000 + (wh > 3 ? (wh - 3) * 3500 : 0);
+    const integrations = complexity === 'complex' ? 30000 : complexity === 'standard' ? 18000 : 10000;
+    const training = 12000;
+    const goLiveSupport = wh * 6000;
+    const projectMgmt = 12000;
+    implDetails = { discovery, solutionDesign, configPerSite, dataMigration, integrations, training, goLiveSupport, projectMgmt, total: discovery + solutionDesign + configPerSite + dataMigration + integrations + training + goLiveSupport + projectMgmt };
+  }
+
+  const annualLicense = monthlyPerSite * 12 * wh;
+  const implementation = implDetails.total;
+  // Industry-competitive escalation: WMS SaaS typically 3-7%. SCC stays below competitors.
+  const scEscalator = tier === 'Essentials' ? 0.03 : 0.04;
+
+  return {
+    tier, monthlyPerSite, annualLicense, implementation, implDetails,
+    firstYearTCO: annualLicense + implementation, annualEscalator: scEscalator,
+    implTimeline: tier === 'Essentials'
+      ? (complexity === 'complex' ? '4-6 weeks' : '2-4 weeks')
+      : (wh > 5 ? '8-12 weeks' : '4-8 weeks'),
+    includes: tier === 'Essentials'
+      ? ['Core WMS', 'Unlimited Users', 'Standard Integrations', 'CODI AI Basic', 'Priority Support', 'Voice-Directed Picking']
+      : ['Full WMS Suite', 'Unlimited Users', 'CODI AI Pro', 'Predictive Analytics', 'Multi-site Orchestration', 'Custom Integrations', 'Dedicated CSM', 'Advanced Automation', 'Voice + RF + Mobile'],
+  };
+}
+
+// ============================================
+// CALCULATION ENGINE
+// ============================================
+function calculate() {
+  const wh = parseInt(document.getElementById('warehouses').value);
+  const whSize = parseInt(document.getElementById('wh-size').value);
+  const users = parseInt(document.getElementById('users').value);
+  const orders = parseInt(document.getElementById('orders').value);
+  const revenue = parseInt(document.getElementById('revenue').value);
+  const complexity = document.getElementById('integrations').value;
+  const currentWms = document.getElementById('current-wms').value;
+
+  const sc = getSCPricing(wh, whSize, revenue, complexity);
+
+  // Competitor size multiplier — competitors scale more aggressively with facility size
+  const compSizeMult = whSize >= 750000 ? 1.65 : whSize >= 250000 ? 1.35 : whSize >= 50000 ? 1.0 : 0.80;
+
+  const compResults = {};
+  for (const [key, comp] of Object.entries(COMPETITORS)) {
+    const license = Math.round(comp.baseLicense(wh, users) * compSizeMult);
+    const impl = Math.round(comp.implementation(wh, users, complexity) * compSizeMult);
+    const hidden = comp.hiddenCosts(license, wh, users, complexity);
+    const yr1Quoted = license + impl;
+    const yr1True = yr1Quoted + hidden.total;
+    const yr2L = license*(1+comp.annualEscalator); const yr3L = yr2L*(1+comp.annualEscalator);
+    const threeYrQ = yr1Quoted + yr2L + yr3L;
+    const threeYrT = threeYrQ + hidden.total + hidden.total*0.8 + hidden.total*0.8;
+    const yr4L = yr3L*(1+comp.annualEscalator); const yr5L = yr4L*(1+comp.annualEscalator);
+    const fiveYrQ = threeYrQ + yr4L + yr5L;
+    const fiveYrT = fiveYrQ + hidden.total + hidden.total*0.8*4;
+    compResults[key] = { name:comp.name, tier:comp.tier, license, impl, hidden, yr1Quoted, yr1True, threeYearQuoted:threeYrQ, threeYearTrue:threeYrT, fiveYearQuoted:fiveYrQ, fiveYearTrue:fiveYrT, escalator:comp.annualEscalator, timeline:comp.implTimeline(wh), userModel:comp.userModel, hiddenSummary:comp.hiddenSummary };
+  }
+
+  // Primary competitor = whatever is selected in dropdown, BUT only if it's also checked in competitor selector
+  let primaryComp;
+  if (currentWms !== 'none' && currentWms !== 'other' && compResults[currentWms] && selectedCompetitors.includes(currentWms)) {
+    primaryComp = compResults[currentWms];
+  } else if (currentWms === 'other' || (currentWms !== 'none' && !selectedCompetitors.includes(currentWms))) {
+    // Fallback to first selected competitor, or null if none selected
+    const fallbackKey = selectedCompetitors.find(k => compResults[k]);
+    primaryComp = fallbackKey ? compResults[fallbackKey] : null;
+  } else {
+    primaryComp = null; // No WMS
+  }
+
+  const scYr2=sc.annualLicense*(1+sc.annualEscalator); const scYr3=scYr2*(1+sc.annualEscalator);
+  const scYr4=scYr3*(1+sc.annualEscalator); const scYr5=scYr4*(1+sc.annualEscalator);
+  const sc3yr = sc.annualLicense + scYr2 + scYr3 + sc.implementation;
+  const sc5yr = sc3yr + scYr4 + scYr5;
+
+  const savings1yr = primaryComp ? primaryComp.yr1True - sc.firstYearTCO : 0;
+  const savings3yr = primaryComp ? primaryComp.threeYearTrue - sc3yr : 0;
+  const savings5yr = primaryComp ? primaryComp.fiveYearTrue - sc5yr : 0;
+  const savingsPct = primaryComp ? Math.round((savings1yr / primaryComp.yr1True) * 100) : 0;
+
+  updateResults(sc, primaryComp, savings1yr, savings3yr, savings5yr, savingsPct, wh);
+  updateTierRecommendation(sc, wh);
+  updateBarChart(sc, sc5yr, compResults);
+  updateComparisonTable(sc, compResults, sc3yr, sc5yr);
+  const hcEl = document.getElementById('hidden-cost-detail');
+  if (primaryComp) { hcEl.style.display = ''; updateHiddenCostBreakdown(primaryComp); }
+  else { hcEl.style.display = 'none'; }
+}
+
+// ============================================
+// UI HELPERS
+// ============================================
+function fmt(n) { if(n>=1000000) return '$'+(n/1000000).toFixed(1)+'M'; if(n>=1000) return '$'+Math.round(n/1000)+'K'; return '$'+n.toLocaleString(); }
+function fmtFull(n) { return '$'+Math.round(n).toLocaleString(); }
+
+function updateResults(sc, primaryComp, s1, s3, s5, pct, wh) {
+  document.getElementById('sc-tco').textContent = fmtFull(sc.firstYearTCO);
+  document.getElementById('sc-breakdown').textContent = `${fmt(sc.monthlyPerSite)}/mo × ${wh} site${wh>1?'s':''} + ${fmt(sc.implementation)} implementation — all-inclusive`;
+  if (primaryComp) {
+    document.getElementById('comp-tco').textContent = fmtFull(primaryComp.yr1True);
+    document.getElementById('comp-breakdown').textContent = `${primaryComp.name} true cost (quoted ${fmt(primaryComp.yr1Quoted)} + ${fmt(primaryComp.hidden.total)} hidden)`;
+    document.getElementById('savings').textContent = fmtFull(Math.max(0, s1));
+    document.getElementById('savings-pct').textContent = s1>0 ? `Same capability, ${pct}% smarter investment` : 'Premium value, comparable investment';
+    document.getElementById('savings-3yr').textContent = fmtFull(Math.max(0, s3));
+    document.getElementById('savings-5yr').textContent = fmtFull(Math.max(0, s5));
+  } else {
+    document.getElementById('comp-tco').textContent = 'N/A';
+    document.getElementById('comp-breakdown').textContent = 'Select a current WMS to compare';
+    document.getElementById('savings').textContent = '—';
+    document.getElementById('savings-pct').textContent = 'Eliminate manual errors, gain real-time visibility';
+    document.getElementById('savings-3yr').textContent = '—';
+    document.getElementById('savings-5yr').textContent = '—';
+  }
+}
+
+function updateTierRecommendation(sc, wh) {
+  const el = document.getElementById('tier-rec');
+  const bc = sc.tier==='Essentials'?'essentials':'enterprise';
+  const ePct = Math.round(sc.annualEscalator*100);
+  const d = sc.implDetails;
+  const lines = [];
+  if(d.discovery) lines.push(['Discovery & Process Mapping',d.discovery]);
+  if(d.solutionDesign) lines.push(['Solution Design & Workflow',d.solutionDesign]);
+  if(d.configuration) lines.push(['System Configuration',d.configuration]);
+  if(d.configPerSite) lines.push([`Configuration (${wh} site${wh>1?'s':''})`,d.configPerSite]);
+  if(d.dataMigration) lines.push(['Data Migration & Validation',d.dataMigration]);
+  if(d.integrations) lines.push(['ERP & System Integrations',d.integrations]);
+  if(d.training) lines.push(['User Training',d.training]);
+  if(d.goLiveSupport) lines.push(['Go-Live Support',d.goLiveSupport]);
+  if(d.projectMgmt) lines.push(['Project Management',d.projectMgmt]);
+  const ilHTML = lines.map(([l,c])=>`<div class="impl-line"><span>${l}</span><span>${fmtFull(c)}</span></div>`).join('');
+  el.innerHTML = `
+    <div><div class="tier-badge ${bc}">${sc.tier==='Essentials'?'◆':sc.tier==='Professional'?'◈':'◈'} Recommended: Codeworks ${sc.tier}</div></div>
+    <div class="tier-price">${fmtFull(sc.monthlyPerSite)}<span>/mo per warehouse</span></div>
+    <div class="tier-meta">${fmtFull(sc.annualLicense)}/yr total (${wh} site${wh>1?'s':''}) &middot; ${ePct}% annual escalation (capped) &middot; Timeline: ${sc.implTimeline}</div>
+    <div class="impl-breakdown"><div class="impl-breakdown-title">Implementation: ${fmtFull(sc.implementation)}</div>${ilHTML}</div>
+    <div class="tier-includes">${sc.includes.map(i=>`<span class="tag">${i}</span>`).join('')}</div>`;
+}
+
+function updateBarChart(sc, sc5yr, compResults) {
+  const el = document.getElementById('tco-bars');
+  const sel = {}; for(const k of selectedCompetitors) if(compResults[k]) sel[k]=compResults[k];
+  const allV = [sc5yr, ...Object.values(sel).map(c=>c.fiveYearTrue)];
+  const mx = Math.max(...allV);
+  let h = `<div class="bar-row"><div class="bar-label">SC Codeworks</div><div class="bar-track"><div class="bar-fill sc" style="width:${Math.max(8,(sc5yr/mx)*100)}%">${fmt(sc5yr)}</div></div></div>`;
+  const sorted = Object.entries(sel).sort((a,b)=>a[1].fiveYearTrue-b[1].fiveYearTrue);
+  for(const [k,c] of sorted) {
+    const pct=Math.max(8,(c.fiveYearTrue/mx)*100);
+    const cls=c.fiveYearTrue>sc5yr*2?'competitor':'competitor-med';
+    h+=`<div class="bar-row"><div class="bar-label">${c.name}</div><div class="bar-track"><div class="bar-fill ${cls}" style="width:${pct}%"><span class="bar-value">${fmt(c.fiveYearTrue)}</span><span class="bar-quoted">(quoted ${fmt(c.fiveYearQuoted)})</span></div></div></div>`;
+  }
+  el.innerHTML = h;
+}
+
+function updateComparisonTable(sc, compResults, sc3yr, sc5yr) {
+  const table = document.getElementById('comp-table');
+  const thead = table.querySelector('thead tr');
+  const tbody = document.getElementById('comp-tbody');
+  let hh = '<th>Factor</th><th class="th-sc">SC Codeworks</th>';
+  for(const k of selectedCompetitors) if(compResults[k]) hh+=`<th>${compResults[k].name}</th>`;
+  thead.innerHTML = hh;
+  const rows = [
+    {label:'Year 1 (Quoted)',sc:fmtFull(sc.firstYearTCO),scC:'low',vf:c=>fmtFull(c.yr1Quoted),vc:c=>c.yr1Quoted>sc.firstYearTCO*1.5?'high':''},
+    {label:'Year 1 Hidden Costs',sc:'$0',scC:'low',vf:c=>'+'+fmtFull(c.hidden.total),vc:()=>'high'},
+    {label:'Year 1 True Cost',sc:fmtFull(sc.firstYearTCO),scC:'low',vf:c=>fmtFull(c.yr1True),vc:()=>'high'},
+    {label:'5-Year True TCO',sc:fmtFull(sc5yr),scC:'low',vf:c=>fmtFull(c.fiveYearTrue),vc:()=>'high'},
+    {label:'Pricing Model',sc:'Flat monthly/site',vf:c=>c.userModel},
+    {label:'Implementation',sc:fmt(sc.implementation),scC:'low',vf:c=>fmt(c.impl),vc:c=>c.impl>sc.implementation*3?'high':''},
+    {label:'Go-Live Timeline',sc:sc.implTimeline,vf:c=>c.timeline},
+    {label:'Annual Escalator',sc:`${Math.round(sc.annualEscalator*100)}% (capped)`,scC:'low',vf:c=>`${(c.escalator*100).toFixed(1)}%`,vc:()=>'high'},
+    {label:'Hidden Cost Drivers',sc:'None — all-inclusive',scC:'low',vf:c=>c.hiddenSummary},
+    {label:'Users Included',sc:'Unlimited',scC:'low',vf:c=>c.userModel.includes('Unlimited')?'Unlimited':'Per-user fees'},
+    {label:'AI / Analytics',sc:'CODI AI included',vf:()=>'Add-on / extra cost'},
+  ];
+  let bh = '';
+  for(const r of rows) {
+    bh += `<tr><td style="font-weight:600;color:var(--color-text-muted);">${r.label}</td><td class="cost-cell ${r.scC||''}" style="background:var(--color-primary-light);">${r.sc}</td>`;
+    for(const k of selectedCompetitors) { const c=compResults[k]; if(!c) continue; bh+=`<td class="cost-cell ${r.vc?r.vc(c):''}">${r.vf(c)}</td>`; }
+    bh += '</tr>';
+  }
+  tbody.innerHTML = bh;
+}
+
+function updateHiddenCostBreakdown(pc) {
+  const el = document.getElementById('hidden-cost-detail');
+  if(!el) return;
+  let h = `<div class="hidden-cost-header"><span>${pc.name} — Quantified Additional Expenses</span><span class="hidden-cost-total">+${fmtFull(pc.hidden.total)}/yr</span></div><div class="hidden-cost-items">`;
+  for(const it of pc.hidden.items) { const pct=Math.round((it.cost/pc.hidden.total)*100); h+=`<div class="hidden-cost-item"><div class="hidden-cost-bar-track"><div class="hidden-cost-bar-fill" style="width:${pct}%"></div></div><div class="hidden-cost-label">${it.label}</div><div class="hidden-cost-value">${fmtFull(it.cost)}</div></div>`; }
+  h += `</div><div class="hidden-cost-note">Based on public customer reports, industry benchmarks, and documented renewal patterns. SC Codeworks includes all these capabilities at no additional cost.</div>`;
+  el.innerHTML = h;
+}
+
+// ============================================
+// COMPETITOR SELECTOR
+// ============================================
+function buildCompetitorSelector() {
+  const el = document.getElementById('competitor-selector');
+  let h = '<div class="comp-selector-grid">';
+  for(const [k,c] of Object.entries(COMPETITORS)) {
+    const ch = selectedCompetitors.includes(k)?'checked':'';
+    h+=`<label class="comp-checkbox ${ch?'active':''}" data-comp="${k}"><input type="checkbox" value="${k}" ${ch}><span class="comp-checkbox-name">${c.name}</span><span class="comp-checkbox-tier">${c.tier}</span></label>`;
+  }
+  h += '</div>';
+  el.innerHTML = h;
+  el.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', e => {
+      const k=e.target.value;
+      if(e.target.checked) { if(!selectedCompetitors.includes(k)) selectedCompetitors.push(k); }
+      else { selectedCompetitors=selectedCompetitors.filter(x=>x!==k); }
+      e.target.closest('.comp-checkbox').classList.toggle('active',e.target.checked);
+      calculate();
+    });
+  });
+}
+
+// ============================================
+// INIT
+// ============================================
+function initSliders() {
+  const wh=document.getElementById('warehouses'), us=document.getElementById('users'), or=document.getElementById('orders');
+  wh.addEventListener('input',()=>{ document.getElementById('wh-val').textContent=wh.value; calculate(); });
+  us.addEventListener('input',()=>{ document.getElementById('user-val').textContent=us.value; calculate(); });
+  or.addEventListener('input',()=>{ document.getElementById('order-val').textContent=parseInt(or.value).toLocaleString(); calculate(); });
+  document.getElementById('wh-size').addEventListener('change',calculate);
+  document.getElementById('revenue').addEventListener('change',calculate);
+  document.getElementById('current-wms').addEventListener('change',calculate);
+  document.getElementById('integrations').addEventListener('change',calculate);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{ initSliders(); buildCompetitorSelector(); calculate(); });
+if(document.readyState!=='loading') { initSliders(); buildCompetitorSelector(); calculate(); }
+</script>
+</body>
+</html>
